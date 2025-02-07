@@ -1,0 +1,30 @@
+/*
+	Theme Name: Montoya Child
+	Theme URI: http://montoya.clapat-themes.com/
+	Description: Responsive Wordpress Theme
+	Template: montoya
+	Version: 1.0
+	Author: You
+	Author URI: http://your site
+	License: Themeforest
+	License: GNU General Public License version 3.0
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+	Tags: agency, ajax, business, clapat, clean, creative, gallery, minimal, modern, photography, portfolio, premium, responsive, showcase
+	Text Domain: montoya-child
+*/
+
+
+/*------------------------------------------------------------------
+
+Add here your own styles
+-------------------------------------------------------------------*/
+
+
+
+main{
+/* 
+not sure what happens with Montoya theme, but this fixes a bug ! 
+the original value is set to 'hidden'
+*/
+	overflow : auto !important;
+}
