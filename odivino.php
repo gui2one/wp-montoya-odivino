@@ -31,16 +31,16 @@ function register_odivino_post_type() {
 		'taxonomies' => ['plats-category'],
         'capability_type' => 'page',
 		'template'    => array(
-                array('core/columns', array(), array( // Create a 2-column layout
+                array('core/columns', array('className' => 'odivino-plat-container'), array( // Create a 2-column layout
                     array('core/column', array(), array( // First column (Image)
-                        array('core/image', array()),
+                        array('core/post-featured-image', array()),
                     )),
                     array('core/column', array(), array( // Second column (Description + Ingredients)
                         array('core/post-title', array(
                             'placeholder' => 'Write a short description...',
                         )),
                         array('core/list', array(
-                            'placeholder' => 'List ingredients here...'
+                            'placeholder' => __('List ingredients here...')
                         )),
                     )),
                 )),
@@ -80,7 +80,7 @@ add_action('manage_plats_posts_custom_column', 'show_plats_category_column', 10,
 function filter_plats_by_category($post_type, $which) {
     if ($post_type !== 'plats') return;
 
-    $taxonomy = 'plats_category';
+    $taxonomy = 'plats-category';
     $terms = get_terms(array('taxonomy' => $taxonomy, 'hide_empty' => false));
 
     if ($terms) {
@@ -101,7 +101,7 @@ function filter_plats_admin_query($query) {
     if ($pagenow === 'edit.php' && isset($_GET['plats_category']) && !empty($_GET['plats_category'])) {
         $query->query_vars['tax_query'] = array(
             array(
-                'taxonomy' => 'plats_category',
+                'taxonomy' => 'plats-category',
                 'field'    => 'slug',
                 'terms'    => $_GET['plats_category'],
             ),
@@ -109,3 +109,10 @@ function filter_plats_admin_query($query) {
     }
 }
 add_filter('pre_get_posts', 'filter_plats_admin_query');
+
+function enqueue_odivino_scripts() {
+    wp_register_script( 'odivino-script', get_stylesheet_directory_uri() . '/odivino-script.js', array('jquery'), false, true );
+	wp_enqueue_script( 'odivino-script' );
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_odivino_scripts' );
