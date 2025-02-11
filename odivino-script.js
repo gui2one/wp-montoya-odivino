@@ -6,9 +6,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function odivino_plats() {
   const plats = document.querySelectorAll(".odivino-plat-container");
-  plats.forEach((plat) => {
-    plat.addEventListener("click", () => {
-      console.log(plat);
+
+  let obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        console.log("add show");
+        obs.unobserve(entry.target);
+      }
     });
   });
+
+  for (let i = 0; i < plats.length; i++) {
+    let plat = plats[i];
+    obs.observe(plat);
+    if (i % 2 == 0) {
+      plat.classList.add("reverse");
+    }
+  }
 }

@@ -31,7 +31,7 @@ the original value is set to 'hidden'
 
 
 main.odivino{
-	max-width: 1150px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 .odivino-plat-container{
@@ -43,6 +43,21 @@ main.odivino{
 	position : relative;
 	max-width : 1150px;
 	margin : 0 auto;
+	display: flex !important;
+	transform : translate(-100px, 0px) !important;
+	opacity : 0.0 !important;
+	transition: all 0.3s ease-out;
+
+	
+	&.reverse{
+		/* display : flex; */
+		flex-direction: row-reverse !important;
+		transform : translate(100px, 0px) !important;
+	}	
+	&.show{
+		transform : translate(0px, 0px) !important;
+		opacity : 1.0 !important;
+	}
 	figure {
 		overflow: hidden;
 		img{
