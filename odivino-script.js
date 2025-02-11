@@ -4,6 +4,10 @@ window.addEventListener("DOMContentLoaded", () => {
   odivino_plats();
 });
 
+let options = {
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.3,
+};
 function odivino_plats() {
   const plats = document.querySelectorAll(".odivino-plat-container");
 
@@ -15,7 +19,7 @@ function odivino_plats() {
         obs.unobserve(entry.target);
       }
     });
-  });
+  }, options);
 
   for (let i = 0; i < plats.length; i++) {
     let plat = plats[i];
