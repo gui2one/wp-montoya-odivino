@@ -116,3 +116,35 @@ function enqueue_odivino_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'enqueue_odivino_scripts' );
+
+function my_child_theme_customize_register($wp_customize) {
+    // Add section for Google Maps settings
+    $wp_customize->add_section('odivino_google_maps_settings', array(
+        'title'    => __('Google Maps Settings', 'my-child-theme'),
+        'priority' => 0,
+    ));
+
+    // Add setting for Google Maps API key
+    $wp_customize->add_setting('odivino_google_maps_api_key', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('odivino_google_maps_api_key', array(
+        'label'      => __('API key', 'montoya'),
+        'section'    => 'odivino_google_maps_settings',
+        'settings'   => 'odivino_google_maps_api_key',
+    ));
+
+    // Add setting for Google Maps Latitude
+    $wp_customize->add_setting('odivino_google_maps_coords', array(
+        'default'           => "45.0, -2.2",
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('odivino_google_maps_coords', array(
+        'label'      => __('GPS Coords', 'montoya'),
+        'section'    => 'odivino_google_maps_settings',
+        'settings'   => 'odivino_google_maps_coords',
+    ));    
+        
+}
+add_action('customize_register', 'my_child_theme_customize_register');

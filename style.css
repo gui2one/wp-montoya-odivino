@@ -29,6 +29,10 @@ the original value is set to 'hidden'
 	overflow : auto !important;
 }
 
+.gm-style button {
+    display: unset !important;
+}
+
 
 main.odivino{
 	max-width: 1000px;
