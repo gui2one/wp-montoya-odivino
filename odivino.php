@@ -135,6 +135,17 @@ function my_child_theme_customize_register($wp_customize) {
         'settings'   => 'odivino_google_maps_api_key',
     ));
 
+    // Add setting for Google Maps mapId
+    $wp_customize->add_setting('odivino_google_maps_map_id', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('odivino_google_maps_map_id', array(
+        'label'      => __('map ID', 'montoya'),
+        'section'    => 'odivino_google_maps_settings',
+        'settings'   => 'odivino_google_maps_map_id',
+    ));
+
     // Add setting for Google Maps Latitude
     $wp_customize->add_setting('odivino_google_maps_coords', array(
         'default'           => "45.0, -2.2",
