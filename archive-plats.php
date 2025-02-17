@@ -4,16 +4,6 @@
     <div style="height:150px;"></div>
     <h1>Notre Carte</h1>
 
-    <!-- Category List -->
-    <ul class="plats-categories">
-        <?php
-        $categories = get_terms('plats-category'); // Get all categories
-        foreach ($categories as $category) :
-            echo '<li><a href="' . get_term_link($category) . '">' . $category->name . '</a></li>';
-        endforeach;
-        ?>
-    </ul>
-
     <!-- Recipe Loop -->
     <?php if (have_posts()) : ?>
         <div class="recipes-grid">

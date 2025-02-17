@@ -37,7 +37,7 @@ function register_odivino_post_type() {
                     )),
                     array('core/column', array(), array( // Second column (Description + Ingredients)
                         array('core/post-title', array(
-                            'placeholder' => 'Write a short description...',
+                            'placeholder' => 'Write a short description...'
                         )),
                         array('core/list', array(
                             'placeholder' => __('List ingredients here...')
