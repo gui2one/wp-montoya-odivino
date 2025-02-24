@@ -1,33 +1,70 @@
 <?php get_header(); ?>
 
+
+<?php 
+
+
+function get_plats_category($category_slug) {
+    $posts = get_posts( array(
+        'post_type' => 'plats',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'plats-category',
+                'field' => 'slug',
+                'terms' => $category_slug,
+            ),
+        ),
+    ) );
+
+    return $posts;
+}
+function get_entrees() {
+    $posts = get_plats_category("entrees");
+
+    return $posts;
+}
+
+function get_plats() {
+    $posts = get_plats_category("plats");
+
+    return $posts;
+}
+
+function get_desserts() {
+    $posts = get_plats_category("desserts");
+    return $posts;
+}
+
+function display_items($posts, $title = "title") {
+
+    echo "<div class=\"odivino-plat-category-container\">";
+    echo "<h2 class=\"italian-title\">$title</h2>";
+    foreach ($posts as $post) {
+        echo "<div class=\"odivino-plat-container\">";
+        echo "<h4>$post->post_title</h4>";
+        echo $post->post_content;
+        echo "</div>";
+    }
+    echo "</div>";
+}
+?>
 <main class="odivino">
     <div style="height:150px;"></div>
     <h1>Notre Carte</h1>
 
     <!-- Recipe Loop -->
     <?php if (have_posts()) : ?>
-        <div class="recipes-grid">
-            <?php while (have_posts()) : the_post(); ?>
-                <article class="recipe">
-                    <!-- <?php if (has_post_thumbnail()) : ?>
-                        <a href="<?php the_permalink(); ?>">
-                            <img src="<?php the_post_thumbnail_url('small'); ?>" alt="<?php the_title(); ?>">
-                        </a>
-                    <?php endif; ?> -->
 
-                    <!-- <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2> -->
+ 
+            <?php 
 
-                    <p><?php the_content(); ?></p> <!-- Short description -->
+            display_items(get_entrees(), "Les Entrées");
+            display_items(get_plats(), "Les Plats");
+            display_items(get_desserts(), "Les Desserts");
+            
+            ?>
 
-                    <!-- Display plats Categories -->
-                    <p class="plats-meta">
-                        Categories: <?php the_terms(get_the_ID(), 'plats-category', '', ', '); ?>
-                    </p>
-
-                    <a href="<?php the_permalink(); ?>" class="btn">View Plat</a>
-                </article>
-            <?php endwhile; ?>
-        </div>
     <?php else : ?>
         <p>No recipes found.</p>
     <?php endif; ?>

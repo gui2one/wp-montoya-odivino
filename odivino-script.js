@@ -24,8 +24,9 @@ function odivino_plats() {
   for (let i = 0; i < plats.length; i++) {
     let plat = plats[i];
     obs.observe(plat);
-    if (i % 2 == 0) {
-      plat.classList.add("reverse");
-    }
+    // plat.classList.add("reverse");
+    // if (i % 2 == 0) {
+    //   plat.classList.add("reverse");
+    // }
   }
 }

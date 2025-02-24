@@ -31,19 +31,9 @@ function register_odivino_post_type() {
 		'taxonomies' => ['plats-category'],
         'capability_type' => 'page',
 		'template'    => array(
-                array('core/columns', array('className' => 'odivino-plat-container'), array( // Create a 2-column layout
-                    array('core/column', array(), array( // First column (Image)
-                        array('core/post-featured-image', array()),
-                    )),
-                    array('core/column', array(), array( // Second column (Description + Ingredients)
-                        array('core/post-title', array(
-                            'placeholder' => 'Write a short description...'
-                        )),
-                        array('core/list', array(
-                            'placeholder' => __('List ingredients here...')
-                        )),
-                    )),
-                )),
+            array('core/paragraph', array(
+                'placeholder' => __('List ingredients here...')
+            )),
             ),
 		'template_lock' => 'insert'
     ]);
