@@ -113,6 +113,25 @@ a.active{
 @media screen and (max-width: 600px) {
 	main.odivino{
 		margin : 0.5em !important;
+		
+	}
+
+	.odivino-plat-category-container{
+		&::after{
+			width : 10px;
+		}
+	}
+	.odivino-plat-container{
+		flex-direction: column;
+		padding-left : 5px;
+
+		& h4{
+			margin-bottom: 0px;
+		}
+		& p{
+			padding-left : 0.0em;
+			font-size : 0.8em;
+		}
 	}
 }
 
