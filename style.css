@@ -28,6 +28,11 @@ div#logo{
 	filter: drop-shadow(2px 2px 5px #000);
 	transform : scale(1.5);
 }
+
+/* bug on form submit ( bad color )*/
+.light-content input[type="submit"], .dark-section input[type="submit"]{
+	color : unset;
+}
 h2.italian-title{
 	position: relative;
 	display: block !important;
