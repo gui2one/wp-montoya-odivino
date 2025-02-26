@@ -77,7 +77,7 @@ main.odivino{
 	&::after{
 		position: absolute;
 		content : "";
-		width : 20px;
+		width : 5px;
 		height : 100%;
 		background-color: white;
 		right : 0px;
@@ -92,7 +92,7 @@ main.odivino{
 	width : 100%;
 	max-width : 1150px;
 	/* margin : 0 auto; */
-	padding-left : 2em;
+	padding : 0 2em;
 	display: flex !important;
 	align-items : baseline;
 	/* justify-content: center; */
@@ -110,6 +110,10 @@ main.odivino{
 		font-size : 0.8em;
 	}
 
+	& h4{
+		white-space: nowrap;
+	}
+
 
 
 }
@@ -124,7 +128,7 @@ a.active{
 	flex-direction: row;
 	align-items: baseline;
 }
-@media screen and (max-width: 600px) {	
+@media screen and (max-width: 800px) {	
 	.horaires-item{
 		& p{
 			font-size : 0.8rem;
@@ -135,11 +139,6 @@ a.active{
 		
 	}
 
-	.odivino-plat-category-container{
-		&::after{
-			width : 10px;
-		}
-	}
 	.odivino-plat-container{
 		flex-direction: column;
 		padding-left : 5px;
@@ -154,11 +153,5 @@ a.active{
 	}
 	div#logo{
 		transform : scale(1.2);
-	}
-}
-
-@media screen and (max-width: 1000px) {
-	main.odivino{
-		margin : 1.0em !important;
 	}
 }
