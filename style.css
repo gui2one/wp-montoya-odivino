@@ -24,7 +24,10 @@ Add here your own styles
     display: unset !important;
 }
 
-
+div#logo{
+	filter: drop-shadow(2px 2px 5px #000);
+	transform : scale(1.5);
+}
 h2.italian-title{
 	position: relative;
 	display: block !important;
@@ -110,7 +113,18 @@ a.active{
 	text-decoration: underline;
 }
 
-@media screen and (max-width: 600px) {
+
+.horaires-item{
+	display : flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+@media screen and (max-width: 600px) {	
+	.horaires-item{
+		& p{
+			font-size : 0.8rem;
+		}
+	}
 	main.odivino{
 		margin : 0.5em !important;
 		
@@ -132,6 +146,9 @@ a.active{
 			padding-left : 0.0em;
 			font-size : 0.8em;
 		}
+	}
+	div#logo{
+		transform : scale(1.2);
 	}
 }
 
