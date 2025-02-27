@@ -128,8 +128,10 @@ a.active{
 	flex-direction: row;
 	align-items: baseline;
 }
-.odivino-home-silder{
-	max-height : 500px;
+
+/** changing height theme slider */
+.odivino-home-silder .clapat-slider{
+	height : 500px !important;
 }
 @media screen and (max-width: 800px) {	
 	.horaires-item{
