@@ -131,7 +131,7 @@ a.active{
 
 /** changing height theme slider */
 .odivino-home-silder .clapat-slider{
-	height : 300px !important;
+	height : 500px !important;
 
 	& .slide-img {
 		width : 100%;
