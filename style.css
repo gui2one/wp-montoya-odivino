@@ -63,6 +63,11 @@ div#logo {
       object-position: center;
     }
   }
+
+  & .odivino-sub-title {
+    color: white !important;
+    opacity: 0.6;
+  }
 }
 .italian-title {
   position: relative;
@@ -92,7 +97,9 @@ div#logo {
     display: inline-block;
     transform: scaleY(1);
     transform-origin: bottom center;
-    transition: transform 0.1s ease-in-out;
+
+    transition: transform 0.25s cubic-bezier(0.43, 0.005, 0.46, 0.995),
+      color 1s linear;
     &:hover {
       transform: scaleY(1.5);
     }

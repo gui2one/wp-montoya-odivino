@@ -34,14 +34,11 @@ function odivino_animated_title() {
   );
 
   let str = title?.innerHTML;
-  let new_title = document.createElement("h1");
-  new_title.classList.add("odivino-animated-title");
+  title.innerHTML = ""; /* reset content */
+
   for (let letter of str) {
     let span = document.createElement("span");
     span.innerHTML = letter;
-    new_title.appendChild(span);
+    title.appendChild(span);
   }
-
-  title.parentElement?.appendChild(new_title);
-  title.remove();
 }
