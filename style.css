@@ -13,160 +13,154 @@
 	Text Domain: montoya-child
 */
 
-
 /*------------------------------------------------------------------
 
 Add here your own styles
 -------------------------------------------------------------------*/
 
-
 .gm-style button {
-    display: unset !important;
+  display: unset !important;
 }
 
-div#logo{
-	filter: drop-shadow(2px 2px 5px #000);
-	transform : scale(1.5);
+div#logo {
+  filter: drop-shadow(2px 2px 5px #000);
+  transform: scale(1.5);
 }
 
 /* bug on form submit ( bad color )*/
-.light-content input[type="submit"], .dark-section input[type="submit"]{
-	color : unset;
+.light-content input[type="submit"],
+.dark-section input[type="submit"] {
+  color: unset;
 }
-.italian-title{
-	position: relative;
-	display: block !important;
-	transform : translateX(20px);
+.italian-title {
+  position: relative;
+  display: block !important;
+  transform: translateX(20px);
 
-	&::after{
-	
-		display: block !important;
-		content : "";
-		position : absolute !important;
-		z-index: 100 !important;
-		top : -3px !important;
-		left : 0px !important;
-		
-		/* background-color: green; */
-		background-image: url("images/italian_flag_cropped.jpg");
-		background-repeat: repeat-y;
-		background-size: 100% 100% !important;
-		width: 10px !important;
-		height : 100% !important;
-		transform : translateX(-20px);
-		
-	}
-}
+  &::after {
+    display: block !important;
+    content: "";
+    position: absolute !important;
+    z-index: 100 !important;
+    top: -3px !important;
+    left: 0px !important;
 
-main.odivino{
-	max-width: 1000px;
-	margin: 0 auto;
-
-	& h1{
-		text-align: center;
-		margin-bottom : 50px;
-	}
+    /* background-color: green; */
+    background-image: url("images/italian_flag_cropped.jpg");
+    background-repeat: repeat-y;
+    background-size: 100% 100% !important;
+    width: 10px !important;
+    height: 100% !important;
+    transform: translateX(-20px);
+  }
 }
 
-.odivino-plat-category-container{
-	position: relative;
-	padding : 1em;
-	background-color: #101010;
-	margin-bottom : 1em;
+main.odivino {
+  max-width: 1200px;
+  margin: 0 auto;
 
-	&::after{
-		position: absolute;
-		content : "";
-		width : 5px;
-		height : 100%;
-		background-color: white;
-		right : 0px;
-		top : 0px;
-		opacity : 0.2;
-	}
+  & h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
 
+.odivino-plat-category-container {
+  position: relative;
+  padding: 1em;
+  background-color: #101010;
+  margin-bottom: 1em;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 100%;
+    background-color: white;
+    right: 0px;
+    top: 0px;
+    opacity: 0.2;
+  }
 }
 .odivino-plat-container {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  /* margin : 0 auto; */
+  padding: 0 2em;
+  display: flex !important;
+  align-items: baseline;
+  /* justify-content: center; */
+  transform: translate(-100px, 0px) !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease-out;
 
-	position : relative;
-	width : 100%;
-	max-width : 1150px;
-	/* margin : 0 auto; */
-	padding : 0 2em;
-	display: flex !important;
-	align-items : baseline;
-	/* justify-content: center; */
-	transform : translate(-100px, 0px) !important;
-	opacity : 0.0 !important;
-	transition: all 0.3s ease-out;
+  &.show {
+    transform: translate(0px, 0px) !important;
+    opacity: 1 !important;
+  }
 
-	&.show{
-		transform : translate(0px, 0px) !important;
-		opacity : 1.0 !important;
-	}
+  & p {
+    padding-left: 1em;
+    font-size: 0.8em;
+  }
 
-	& p{
-		padding-left : 1em;
-		font-size : 0.8em;
-	}
-
-	& h4{
-		white-space: nowrap;
-	}
-
-
-
+  & h4 {
+    white-space: nowrap;
+  }
 }
 
-a.active{
-	text-decoration: underline;
+a.active {
+  text-decoration: underline;
 }
 
-
-.horaires-item{
-	display : flex;
-	flex-direction: row;
-	align-items: baseline;
+.horaires-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 /** changing height theme slider */
-.odivino-home-silder .clapat-slider{
-	height : 500px !important;
+.odivino-home-silder .clapat-slider {
+  height: 500px !important;
 
-	& .slide-img {
-		width : 100%;
-		height: 100%;
-		& img{
-			object-fit: cover !important;
-			width : 100%;
-			height: 100%;
-		}
-	}
+  & .slide-img {
+    width: 100%;
+    height: 100%;
+    & img {
+      object-fit: cover !important;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
-@media screen and (max-width: 800px) {	
-	.horaires-item{
-		& p{
-			font-size : 0.8rem;
-		}
-	}
-	main.odivino{
-		margin : 0.5em !important;
-		
-	}
+@media screen and (max-width: 800px) {
+  header {
+    position: absolute;
+  }
 
-	.odivino-plat-container{
-		flex-direction: column;
-		padding-left : 5px;
+  .horaires-item {
+    & p {
+      font-size: 0.8rem;
+    }
+  }
+  main.odivino {
+    margin: 0.5em !important;
+  }
 
-		& h4{
-			margin-bottom: 0px;
-		}
-		& p{
-			padding-left : 0.0em;
-			font-size : 0.8em;
-		}
-	}
-	div#logo{
-		transform : scale(1.2);
-	}
+  .odivino-plat-container {
+    flex-direction: column;
+    padding-left: 5px;
+
+    & h4 {
+      margin-bottom: 0px;
+    }
+    & p {
+      padding-left: 0em;
+      font-size: 0.8em;
+    }
+  }
+  div#logo {
+    transform: scale(1.2);
+  }
 }
