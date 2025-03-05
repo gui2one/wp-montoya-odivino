@@ -25,16 +25,23 @@ function odivino_plats() {
   for (let i = 0; i < plats.length; i++) {
     let plat = plats[i];
     obs.observe(plat);
-    // plat.classList.add("reverse");
-    // if (i % 2 == 0) {
-    //   plat.classList.add("reverse");
-    // }
   }
 }
 
 function odivino_animated_title() {
-  let titles = document.querySelectorAll(".odivino-animated-title");
-  for (let title of titles) {
-    console.log(title);
+  let title = /** @type {HTMLElement} */ (
+    document.querySelector(".odivino-animated-title")
+  );
+
+  let str = title?.innerHTML;
+  let new_title = document.createElement("h1");
+  new_title.classList.add("odivino-animated-title");
+  for (let letter of str) {
+    let span = document.createElement("span");
+    span.innerHTML = letter;
+    new_title.appendChild(span);
   }
+
+  title.parentElement?.appendChild(new_title);
+  title.remove();
 }
