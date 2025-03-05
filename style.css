@@ -17,10 +17,6 @@
 Add here your own styles
 -------------------------------------------------------------------*/
 
-* {
-  user-select: text;
-}
-
 .gm-style button {
   display: unset !important;
 }
