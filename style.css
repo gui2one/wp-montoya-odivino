@@ -141,7 +141,10 @@ main.odivino {
     font-size: 0.8em;
   }
 
-  & h4 {
+  & h4,
+  h5 {
+    color: hsl(0, 0%, 75%) !important;
+    font-weight: bolder;
     white-space: nowrap;
   }
 }
@@ -171,7 +174,8 @@ a.active {
   }
 }
 
-.wp-block-separator {
+.wp-block-separator,
+.odivino-separator {
   display: block;
   position: relative;
   overflow: visible;
