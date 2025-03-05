@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log("odivino-script loaded");
 
   odivino_plats();
+  odivino_animated_title();
 });
 
 let options = {
@@ -28,5 +29,12 @@ function odivino_plats() {
     // if (i % 2 == 0) {
     //   plat.classList.add("reverse");
     // }
+  }
+}
+
+function odivino_animated_title() {
+  let titles = document.querySelectorAll(".odivino-animated-title");
+  for (let title of titles) {
+    console.log(title);
   }
 }
