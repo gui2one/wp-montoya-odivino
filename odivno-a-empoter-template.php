@@ -74,7 +74,7 @@ get_header(); ?>
         echo "<h4 class=\"italian-title\">$title</h4>";
         foreach ($posts as $post) {
             echo "<div class=\"odivino-plat-container\">";
-            echo "<h5>$post->post_title</h5>";
+            echo "<h4>$post->post_title</h4>";
             echo $post->post_content;
             echo "</div>";
         }
