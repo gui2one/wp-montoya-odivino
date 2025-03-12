@@ -33,16 +33,18 @@ function odivino_animated_title() {
     document.querySelector(".odivino-animated-title")
   );
 
-  let str = title?.innerHTML;
-  title.innerHTML = ""; /* reset content */
+  if (title) {
+    let str = title?.innerHTML;
+    title.innerHTML = ""; /* reset content */
 
-  for (let letter of str) {
-    let span = document.createElement("span");
-    span.innerHTML = letter;
-    title.appendChild(span);
+    for (let letter of str) {
+      let span = document.createElement("span");
+      span.innerHTML = letter;
+      title.appendChild(span);
+    }
+
+    title.addEventListener("mouseover", () => {
+      console.log("title hover !!");
+    });
   }
-
-  title.addEventListener("mouseover", () => {
-    console.log("title hover !!");
-  });
 }
