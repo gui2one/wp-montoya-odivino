@@ -52,9 +52,9 @@ get_header(); ?>
 ?>
 <main class="odivino">
  <div style="height:150px;"></div>
-
-   <h1>Menu de la Semaine</h1>
-    <?php display_items($entrees, "Entrées"); ?>
+ <h1>Menu de la Semaine</h1>
+ <?php the_content(); ?>
+<?php display_items($entrees, "Entrées"); ?>
     <div class="odivino-separator"></div>
     <?php display_items($plats, "Plats"); ?>
     <div class="odivino-separator"></div>

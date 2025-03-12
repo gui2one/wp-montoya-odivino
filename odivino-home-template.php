@@ -23,7 +23,7 @@ get_header(); ?>
   </div>
     </div> <!-- END header -->
 <main class="odivino">
- <div style="height:150px;"></div>
+ <!-- <div style="height:150px;"></div> -->
     <?php the_content(); ?>
  </main>
  <?php get_footer(); ?>

@@ -41,4 +41,8 @@ function odivino_animated_title() {
     span.innerHTML = letter;
     title.appendChild(span);
   }
+
+  title.addEventListener("mouseover", () => {
+    console.log("title hover !!");
+  });
 }

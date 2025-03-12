@@ -205,7 +205,11 @@ a.active {
   );
   height: 3px;
 }
-@media screen and (max-width: 800px) {
+
+.two-columns {
+  column-count: 2;
+}
+@media screen and (max-width: 767px) {
   header {
     position: absolute;
   }
@@ -233,5 +237,10 @@ a.active {
   }
   div#logo {
     transform: scale(1.2);
+  }
+
+  .two-columns {
+    column-count: 1;
+    font-size: 0.8em;
   }
 }

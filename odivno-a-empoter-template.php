@@ -92,7 +92,7 @@ get_header(); ?>
 <?php display_items(get_base_mozzarella(), "Base Mozzarella"); ?>
 <?php display_items(get_speciales(), "Les Spéciales"); ?>
 <div class="odivino-separator"></div>
-    <h3>Gourmandises</h3>
+    <h3>Gourmandises (6€)</h3>
     <?php
 
         $plats_emporter = get_plats_category("desserts", "a-emporter");
