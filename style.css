@@ -43,6 +43,13 @@ div#logo {
 
   object-fit: cover;
   object-position: center;
+
+  & .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   & .image-container {
     z-index: -1;
     position: absolute;
@@ -93,6 +100,8 @@ div#logo {
 }
 
 .odivino-animated-title {
+  display: flex;
+  justify-content: center;
   & span {
     display: inline-block;
     transform: scaleY(1);
@@ -175,7 +184,7 @@ a.active {
 
 /** changing height theme slider */
 .odivino-home-silder .clapat-slider {
-  height: 500px !important;
+  height: auto !important;
 
   & .slide-img {
     width: 100%;
@@ -242,5 +251,9 @@ a.active {
   .two-columns {
     column-count: 1;
     font-size: 0.8em;
+  }
+
+  .wp-block-separator {
+    margin: 1em auto;
   }
 }
