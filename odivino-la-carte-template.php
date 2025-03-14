@@ -69,13 +69,51 @@ get_header(); ?>
     {
 
         echo "<div class=\"odivino-plat-category-container\">";
-        echo "<h4 class=\"italian-title\">$title</h4>";
+        echo "<h4 class=\"category-title italian-title \">$title</h4>";
         foreach ($posts as $post) {
             echo "<div class=\"odivino-plat-container\">";
             echo "<h5>$post->post_title</h5>";
             echo $post->post_content;
             echo "</div>";
         }
+        echo "</div>";
+    }
+    function display_pizzas($title = "title")
+    {
+        $pizzas_mozza     = get_pizzas_category("Base Mozzarella fior di latte");
+        $pizzas_tomate    = get_pizzas_category("Base Tomate");
+        $pizzas_speciales = get_pizzas_category("Speciales");
+        echo "<div class=\"odivino-plat-category-container\">";
+        echo "<h4 class=\"category-title italian-title \">$title</h4>";
+        echo "<div class=\"odivino-pizza-category-container\">";
+        echo "<h5>Base Mozzarella</h5>";
+        foreach ($pizzas_mozza as $post) {
+            echo "<div class=\"odivino-plat-container\">";
+            echo "<h6>$post->post_title</h6>";
+            echo $post->post_content;
+            echo "</div>";
+        }
+        echo "</div>";
+
+        echo "<div class=\"odivino-pizza-category-container\">";
+        echo "<h5>Base Tomate</h5>";
+        foreach ($pizzas_tomate as $post) {
+            echo "<div class=\"odivino-plat-container\">";
+            echo "<h6>$post->post_title</h6>";
+            echo $post->post_content;
+            echo "</div>";
+        }
+        echo "</div>";
+
+        echo "<div class=\"odivino-pizza-category-container\">";
+        echo "<h5>Les Spéciales</h5>";
+        foreach ($pizzas_speciales as $post) {
+            echo "<div class=\"odivino-plat-container\">";
+            echo "<h6>$post->post_title</h6>";
+            echo $post->post_content;
+            echo "</div>";
+        }
+        echo "</div>";
         echo "</div>";
     }
 
@@ -90,17 +128,14 @@ get_header(); ?>
 <main class="odivino">
  <div style="height:150px;"></div>
  <h1>Notre Carte</h1>
+ <div class="odivino-separator"></div>
  <?php the_content(); ?>
- <h2>Les Plats</h2>
-    <?php display_items($entrees, "Entrées"); ?>
+<?php display_items($entrees, "Entrées"); ?>
+
 <?php display_items($plats, "Plats"); ?>
+<?php display_pizzas("Les Pizzas"); ?>
 <?php display_items($desserts, "Desserts"); ?>
 
-    <div class="odivino-separator"></div>
 
-    <h2>Les Pizzas</h2>
-    <?php display_items($pizzas_mozza, "Base Mozzarella"); ?>
-<?php display_items($pizzas_tomate, "Base Tomate"); ?>
-<?php display_items($pizzas_speciales, "Spéciales"); ?>
  </main>
  <?php get_footer(); ?>
