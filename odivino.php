@@ -8,7 +8,7 @@ add_theme_support('post-thumbnails');
 function enqueue_odivino_scripts()
 {
     wp_register_script('odivino-script', get_stylesheet_directory_uri() . '/odivino-script.js', ['jquery'], false, true);
-    wp_register_script('odivino-admin-script', get_stylesheet_directory_uri() . '/odivino_admin.js', [], false, true);
+    wp_register_script('odivino-admin-script', get_stylesheet_directory_uri() . '/odivino_admin.js', ['wp-api'], false, true);
     wp_enqueue_script('odivino-script');
     wp_enqueue_script('odivino-admin-script');
 }
