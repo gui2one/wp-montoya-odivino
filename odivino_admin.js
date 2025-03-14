@@ -32,7 +32,13 @@ function edit_plat() {
         console.log("Current Content:", page.get("content").rendered);
 
         // Update the content properly
-        page.set("content", { rendered: "\n<p>sdfsdf</p>" });
+        page.set("content", {
+          raw: `
+            <!-- wp:paragraph -->
+<p>Trio de mignardises</p>
+<!-- /wp:paragraph -->`,
+          block_version: 2,
+        });
         // page.content.rendered = "\n<p>sdfsdf</p>";
         console.log(page);
 

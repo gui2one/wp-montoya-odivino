@@ -160,10 +160,10 @@ main.odivino {
 }
 .odivino-plat-container {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   max-width: 1150px;
   /* margin : 0 auto; */
-  padding: 0 2em;
+  padding: 0 1em;
   display: flex !important;
   align-items: baseline;
   /* justify-content: center; */
