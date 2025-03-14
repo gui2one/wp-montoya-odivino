@@ -32,8 +32,8 @@ function edit_plat() {
         console.log("Current Content:", page.get("content").rendered);
 
         // Update the content properly
-        page.set("content", "\n<p>sdfsdf</p>");
-
+        // page.set("content", "\n<p>sdfsdf</p>");
+        page.content.rendered = "\n<p>sdfsdf</p>";
         console.log(page);
 
         // // Save the updated post
