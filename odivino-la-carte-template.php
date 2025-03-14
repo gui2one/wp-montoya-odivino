@@ -91,12 +91,13 @@ get_header(); ?>
  <div style="height:150px;"></div>
  <h1>Notre Carte</h1>
  <?php the_content(); ?>
-<?php display_items($entrees, "Entrées"); ?>
-<h2>Les Plats</h2>
-    <?php display_items($plats, "Plats"); ?>
+ <h2>Les Plats</h2>
+    <?php display_items($entrees, "Entrées"); ?>
+<?php display_items($plats, "Plats"); ?>
+<?php display_items($desserts, "Desserts"); ?>
 
-    <?php display_items($desserts, "Desserts"); ?>
     <div class="odivino-separator"></div>
+
     <h2>Les Pizzas</h2>
     <?php display_items($pizzas_mozza, "Base Mozzarella"); ?>
 <?php display_items($pizzas_tomate, "Base Tomate"); ?>
