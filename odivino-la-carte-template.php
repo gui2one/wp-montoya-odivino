@@ -14,6 +14,8 @@ get_header(); ?>
         $posts = get_posts([
             'post_type'      => 'plats',
             'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
             'tax_query'      => [
                 'relation' => 'AND',
                 [
@@ -37,6 +39,8 @@ get_header(); ?>
         $posts = get_posts([
             'post_type'      => 'plats',
             'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
             'tax_query'      => [
                 [
                     'taxonomy' => 'plats-category',
@@ -54,6 +58,8 @@ get_header(); ?>
         $posts = get_posts([
             'post_type'      => 'pizzas',
             'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
             'tax_query'      => [
                 [
                     'taxonomy' => 'pizzas-category',
