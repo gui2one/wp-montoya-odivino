@@ -9,31 +9,6 @@ get_header(); ?>
 
 
 <?php
-    function get_plats_category2($category_slug1, $category_slug2)
-    {
-        $posts = get_posts([
-            'post_type'      => 'plats',
-            'posts_per_page' => -1,
-            'orderby'        => 'title',
-            'order'          => 'ASC',
-            'tax_query'      => [
-                'relation' => 'AND',
-                [
-                    'taxonomy' => 'plats-category',
-                    'field'    => 'slug',
-                    'terms'    => $category_slug1,
-                ],
-                [
-                    'taxonomy' => 'plats-category',
-                    'field'    => 'slug',
-                    'terms'    => $category_slug2,
-                ],
-            ],
-        ]);
-
-        return $posts;
-    }
-
     function get_plats_category($cat_slug)
     {
         $posts = get_posts([
