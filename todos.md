@@ -1,3 +1,4 @@
 # Todo
 
-- prix pour tous les plats
+- pizzas dans la carte
+- selection addresse et tel
