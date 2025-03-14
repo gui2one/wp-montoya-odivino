@@ -218,6 +218,14 @@ a.active {
 .two-columns {
   column-count: 2;
 }
+
+.box-icon-content h6.no-margins {
+  user-select: text;
+  &::selection {
+    color: white;
+    background-color: darkgreen;
+  }
+}
 @media screen and (max-width: 767px) {
   header {
     position: absolute;
