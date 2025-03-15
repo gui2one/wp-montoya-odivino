@@ -170,15 +170,15 @@ function admin_enqueue_styles()
 {
     wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/style_admin.css');
 
-    $admin_script = 'odivino-admin-script';
-    wp_register_script($admin_script, get_stylesheet_directory_uri() . '/odivino_admin.js', ['wp-api'], false, true);
-    wp_enqueue_script($admin_script);
-    js_file_make_module($admin_script);
+    // $admin_script = 'odivino-admin-script';
+    // wp_register_script($admin_script, get_stylesheet_directory_uri() . '/odivino_admin.js', ['wp-api'], false, true);
+    // wp_enqueue_script($admin_script);
+    // js_file_make_module($admin_script);
 
-    $admin_module = 'admin-module-js';
-    wp_register_script($admin_module, get_stylesheet_directory_uri() . '/js/admin_module.js', [], time(), true);
-    wp_enqueue_script($admin_module);
-    js_file_make_module($admin_module);
+    // $admin_module = 'admin-module-js';
+    // wp_register_script($admin_module, get_stylesheet_directory_uri() . '/js/admin_module.js', [], time(), true);
+    // wp_enqueue_script($admin_module);
+    // js_file_make_module($admin_module);
 
 }
 add_action('admin_enqueue_scripts', 'admin_enqueue_styles');

@@ -1,6 +1,31 @@
-.plat-container {
-  outline: 1px solid black;
-  padding: 5px;
-  margin-bottom: 5px;
-  background-color: white;
+#plats-container {
+  display: flex;
+  flex-wrap: wrap;
+  & .plat-container {
+    display: flex;
+    flex-direction: row;
+    outline: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    width: 500px;
+    & h4 {
+      color: black !important;
+      font-size: 2em;
+      margin: 0.2em;
+    }
+
+    & p {
+      margin: 0.2em;
+    }
+  }
+}
+
+odivino-admin-tabs {
+  & .tabcontent {
+    all: unset;
+    display: block !important;
+
+    /* color: white !important; */
+  }
 }
