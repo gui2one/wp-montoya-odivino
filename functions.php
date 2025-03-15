@@ -2,6 +2,7 @@
 
 require_once "odivino.php";
 require_once "inc/utils.php";
+require_once "odivino_admin.php";
 // enqueue parent theme styles
 function my_theme_enqueue_styles()
 {

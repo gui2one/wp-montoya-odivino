@@ -1,21 +1,10 @@
+// @ts-nocheck
 import { my_function } from "./js/admin_module";
 
 // @ts-nocheck
 console.log("odivino_admin.js executed");
 
 edit_plat();
-// wp.api.loadPromise.done(function () {
-//   //   get_plats().then((data) => {
-//   //     console.log(data);
-//   //   });
-// });
-
-// async function get_plats() {
-//   let fetched = await fetch("/wp-json/wp/v2/plats/");
-//   let result = await fetched.json();
-
-//   return result;
-// }
 
 function edit_plat() {
   // Fetch the post by slug to get its ID first
@@ -53,5 +42,3 @@ function edit_plat() {
     })
     .catch((err) => console.error("Fetch failed:", err));
 }
-
-my_function();
