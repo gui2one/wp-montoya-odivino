@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { my_function } from "./js/admin_module";
+import { my_function } from "./js/admin_module.js";
 
 // @ts-nocheck
 console.log("odivino_admin.js executed");
