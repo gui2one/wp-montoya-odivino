@@ -1,8 +1,10 @@
+// @ts-nocheck
 window.addEventListener("DOMContentLoaded", () => {
   console.log("odivino-script loaded");
 
   odivino_plats();
   odivino_animated_title();
+  find_telephone_number_div();
 });
 
 let options = {
@@ -46,5 +48,19 @@ function odivino_animated_title() {
     title.addEventListener("mouseover", () => {
       console.log("title hover !!");
     });
+  }
+}
+
+function find_telephone_number_div() {
+  let icon_div = document.querySelectorAll(".fa-phone");
+  // console.log(icon_div);
+  for (let div of icon_div) {
+    let num = div.parentElement?.parentElement?.querySelector(
+      ".box-icon-content h6"
+    );
+
+    if (num !== null) {
+      num.innerHTML = `<a href="tel:${num.textContent}">${num.textContent}</a>`;
+    }
   }
 }

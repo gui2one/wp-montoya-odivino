@@ -1,3 +1,5 @@
+import { my_function } from "./js/admin_module";
+
 // @ts-nocheck
 console.log("odivino_admin.js executed");
 
@@ -51,3 +53,5 @@ function edit_plat() {
     })
     .catch((err) => console.error("Fetch failed:", err));
 }
+
+my_function();
