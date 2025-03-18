@@ -11,7 +11,7 @@ add_action('init', function () {
     register_custom_post_type_and_taxonomy([
         'post_type'        => 'a_emporter',
         'post_type_labels' => [
-            'name'     => 'Plats à emporter',
+            'name'     => 'A emporter',
             'singular' => 'Aaa',
         ],
         'taxonomy'         => [

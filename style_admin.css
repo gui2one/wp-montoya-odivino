@@ -1,5 +1,6 @@
 #plats-container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   & .plat-container {
     display: flex;
@@ -27,5 +28,29 @@ odivino-admin-tabs {
     display: block !important;
 
     /* color: white !important; */
+  }
+}
+
+odivino-edit-plat {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000000000000000000;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  & label {
+    width: 100px;
+    display: block;
+  }
+  #edit_plat_container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
   }
 }

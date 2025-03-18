@@ -4,8 +4,8 @@ import { my_function } from "./js/admin_module.js";
 // @ts-nocheck
 console.log("odivino_admin.js executed");
 
-edit_plat();
-
+// edit_plat();
+list_a_emporter();
 function edit_plat() {
   // Fetch the post by slug to get its ID first
   let post = new wp.api.collections.Plats();
@@ -41,4 +41,18 @@ function edit_plat() {
       });
     })
     .catch((err) => console.error("Fetch failed:", err));
+}
+
+function list_a_emporter() {
+  console.log(wp.api.models);
+
+  let post = new wp.api.collections.A_emporter();
+  post.fetch().then((posts) => {
+    if (posts.length === 0) {
+      console.error("Post not found");
+      return;
+    } else {
+      console.log(posts);
+    }
+  });
 }

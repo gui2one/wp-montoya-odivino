@@ -24,6 +24,15 @@ function register_custom_post_type_and_taxonomy($args)
                 'query_var'    => $args['taxonomy']['query_var'] ?? true,
             ]
         );
+
+        // Add hardcoded categories
+        $default_terms = ['Entrees', 'Salades', 'Pizzas', 'Plats', 'Desserts'];
+
+        foreach ($default_terms as $term) {
+            if (! term_exists($term, $args['taxonomy']['slug'])) {
+                wp_insert_term($term, $args['taxonomy']['slug']);
+            }
+        }
     }
 
     // Register Custom Post Type
@@ -43,6 +52,6 @@ function register_custom_post_type_and_taxonomy($args)
         'template'           => $args['template'] ?? [],
         'template_lock'      => $args['template_lock'] ?? 'insert',
         'menu_position'      => $args['menu_position'] ?? 1,
-        'show_in_menu'       => $args['show_in_menu'] ?? false,
+        'show_in_menu'       => $args['show_in_menu'] ?? true,
     ]);
 }
