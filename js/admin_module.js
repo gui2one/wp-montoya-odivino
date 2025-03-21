@@ -38,8 +38,10 @@ export class OdivinoAdminTabs extends LitElement {
       for (let item of data) {
         console.log(item);
         let plat_container = new OdivinoAdminPlat();
+        plat_container.id = item.id;
+        plat_container.category = item[`${tab.slug}-category`].length;
+
         plat_container.title = decodeHtmlCharCodes(item.title.rendered);
-        plat_container.category = item[`${tab.slug}-category`];
         plat_container.content.innerHTML = decodeHtmlCharCodes(
           item.content.rendered
         );
@@ -169,7 +171,12 @@ export class OdivinoAdminPlat extends LitElement {
   }
 
   edit_post() {
-    document.body.appendChild(new OdivinoEditPlat());
+    let el = new OdivinoEditPlat();
+    console.log(this);
+
+    // el.plat_id = parseInt(this.id, 10);
+    el.plat = this;
+    document.body.appendChild(el);
     console.log(this.title);
   }
   // @ts-ignore
@@ -177,7 +184,8 @@ export class OdivinoAdminPlat extends LitElement {
     return html` <div class="plat-container">
       <h2>${this.title}</h2>
       <p>${this.content}</p>
-      <p>${this.category}</p>
+      <p>catgories : ${this.category}</p>
+      <p>ID : ${this.id}</p>
       <button @click=${this.edit_post}>Edit</button>
     </div>`;
   }
@@ -187,29 +195,11 @@ customElements.define("odivino-admin-plat", OdivinoAdminPlat);
 export class OdivinoEditPlat extends LitElement {
   constructor() {
     super();
-    this.plat_id = -1;
+    // this.plat_id = -1;
+    /** @type {OdivinoAdminPlat | undefined} */
+    this.plat = undefined;
   }
 
-  static styles = css`
-    :host {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 1000000000;
-    }
-
-    #edit_plat_container {
-      background-color: red;
-      display: flex;
-      flex-direction: column;
-    }
-  `;
   cancel() {
     console.log("cancelling");
     this.remove();
@@ -228,11 +218,16 @@ export class OdivinoEditPlat extends LitElement {
     return html`
       <div id="edit_plat_container">
         <label for="input_title">Titre </label>
-        <input type="text" id="input_title" />
+        <input type="text" id="input_title" value="${this.plat?.title}" />
         <label for="input_description">Description </label>
-        <input type="text" id="input_description" />
+        <input
+          type="text"
+          id="input_description"
+          value="${this.plat?.content.innerHTML}"
+        />
         <label for="input_price">Prix </label>
         <input type="number" id="input_price" />
+        <div>ID : ${this.plat?.id}</div>
       </div>
       <div id="edit_plat_buttons">
         <button @click=${this.cancel}>Cancel</button>
@@ -244,6 +239,7 @@ export class OdivinoEditPlat extends LitElement {
 customElements.define("odivino-edit-plat", OdivinoEditPlat);
 // utils functions
 export function edit_plat(id) {
+  // @ts-ignore
   let page = new wp.api.models.Plats({ id: id });
 
   page.fetch().then(() => {

@@ -6,27 +6,27 @@ require_once 'inc/utils.php';
 
 add_theme_support('post-thumbnails');
 
-// Call the function with parameters
-add_action('init', function () {
-    register_custom_post_type_and_taxonomy([
-        'post_type'        => 'a_emporter',
-        'post_type_labels' => [
-            'name'     => 'A emporter',
-            'singular' => 'Aaa',
-        ],
-        'taxonomy'         => [
-            'slug'         => 'a_emporter-category',
-            'label'        => 'Categories',
-            'hierarchical' => true,
-            'show_in_rest' => true,
-            'query_var'    => true,
-        ],
-        'supports'         => ['title', 'editor', 'thumbnail'],
-        'template'         => [
-            ['core/paragraph', ['placeholder' => __('List ingredients here...')]],
-        ],
-    ]);
-});
+create_custom_post_type_and_taxonomy([
+    'post_type'        => 'a_emporter',
+    'post_type_labels' => [
+        'name'     => 'A emporter',
+        'singular' => 'A emporter',
+    ],
+    'taxonomy'         => [
+        'slug'         => 'a_emporter-category',
+        'label'        => 'Categories',
+        'hierarchical' => true,
+        'show_in_rest' => true,
+        'query_var'    => true,
+    ],
+    'supports'         => ['title', 'editor', 'thumbnail', 'custom-fields'],
+    'template'         => [
+        ['core/paragraph', ['placeholder' => __('List ingredients here...')]],
+    ],
+]);
+
+add_category_column_and_filter('a_emporter');
+
 function enqueue_odivino_scripts()
 {
     wp_register_script('odivino-script', get_stylesheet_directory_uri() . '/odivino-script.js', ['jquery'], false, true);

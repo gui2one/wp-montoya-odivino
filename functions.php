@@ -168,7 +168,7 @@ if (! function_exists('serano_child_kses_allowed_html')) {
 
 function admin_enqueue_styles()
 {
-    wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/style_admin.css');
+    wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/style_admin.css', [], time(), 'all');
 
     $admin_script = 'odivino-admin-script';
     wp_register_script($admin_script, get_stylesheet_directory_uri() . '/odivino_admin.js', ['wp-api'], false, true);

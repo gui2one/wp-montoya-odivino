@@ -25,7 +25,7 @@ function register_odivino_post_type()
         'public'             => true,
         'has_archive'        => true,
         'show_in_nav_menus'  => true,
-        'supports'           => ['title', 'editor', 'thumbnail'],
+        'supports'           => ['title', 'editor', 'thumbnail', 'custom-fields'],
         'show_in_rest'       => true,
         'publicly_queryable' => true,
         'taxonomies'         => ['plats-category'],
