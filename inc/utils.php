@@ -51,7 +51,7 @@ function __register_custom_post_type_and_taxonomy($args)
         'capability_type'    => $args['capability_type'] ?? 'page',
         'template'           => $args['template'] ?? [],
         'template_lock'      => $args['template_lock'] ?? 'insert',
-        'menu_position'      => $args['menu_position'] ?? 1,
+        'menu_position'      => $args['menu_position'] ?? -1,
         'show_in_menu'       => $args['show_in_menu'] ?? true,
     ]);
 }
