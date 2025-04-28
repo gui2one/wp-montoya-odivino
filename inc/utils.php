@@ -33,6 +33,22 @@ function __register_custom_post_type_and_taxonomy($args)
                 wp_insert_term($term, $args['taxonomy']['slug']);
             }
         }
+
+        // Add subcategories under "Pizzas"
+        $pizza_children = ['Base Mozzarella fior di latte', 'Base Tomate', 'Speciales'];
+
+        // First, make sure "Pizzas" exists and get its term ID
+        $pizzas_term = get_term_by('name', 'Pizzas', $args['taxonomy']['slug']);
+
+        if ($pizzas_term && ! is_wp_error($pizzas_term)) {
+            foreach ($pizza_children as $child_term) {
+                if (! term_exists($child_term, $args['taxonomy']['slug'])) {
+                    wp_insert_term($child_term, $args['taxonomy']['slug'], [
+                        'parent' => $pizzas_term->term_id,
+                    ]);
+                }
+            }
+        }
     }
 
     // Register Custom Post Type
