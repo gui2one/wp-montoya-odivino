@@ -54,13 +54,13 @@ function get_plats_category($cat_slug)
 function get_pizzas_category($cat_slug)
 {
     $posts = get_posts([
-        'post_type'      => 'pizzas',
+        'post_type'      => 'la_carte',
         'posts_per_page' => -1,
         'orderby'        => 'title',
         'order'          => 'ASC',
         'tax_query'      => [
             [
-                'taxonomy' => 'pizzas-category',
+                'taxonomy' => 'la_carte-category',
                 'field'    => 'slug',
                 'terms'    => $cat_slug,
             ],
@@ -122,8 +122,8 @@ function display_pizzas($title = "title")
 }
 
 $entrees  = get_la_carte_category("entrees");
-$plats    = get_plats_category("plats");
-$desserts = get_plats_category("desserts");
+$plats    = get_la_carte_category("plats");
+$desserts = get_la_carte_category("desserts");
 
 $pizzas_mozza     = get_pizzas_category("Base Mozzarella fior di latte");
 $pizzas_tomate    = get_pizzas_category("Base Tomate");
