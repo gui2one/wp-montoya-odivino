@@ -10,7 +10,7 @@ get_header(); ?>
 
 
 <?php
-include get_stylesheet_directory() . '../functions_odivino.php';
+include get_stylesheet_directory() . '/../functions_odivino.php';
 
 
 function display_items($posts, $title = "title")
