@@ -2,7 +2,6 @@
 
 require_once "odivino.php";
 require_once "inc/utils.php";
-require_once "odivino_admin.php";
 // enqueue parent theme styles
 function my_theme_enqueue_styles()
 {
@@ -72,7 +71,6 @@ function my_theme_enqueue_styles()
                             $post_custom_css = strip_tags($post_custom_css);
                             return $content . '<style type="text/css" data-type="vc_custom-css">' . $post_custom_css . '</style>';
                         }
-
                     }
                 }
 
@@ -159,11 +157,9 @@ if (! function_exists('serano_child_kses_allowed_html')) {
             default:
                 return $tags;
         }
-
     }
 
     add_filter('wp_kses_allowed_html', 'serano_child_kses_allowed_html', 9, 2);
-
 }
 
 function admin_enqueue_styles()
