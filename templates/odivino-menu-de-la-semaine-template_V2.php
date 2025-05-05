@@ -5,7 +5,7 @@
  * Description: A custom page template for the Odivino page.
  * Author: gui2one
  */
-include get_stylesheet_directory() . '/../functions_odivino.php';
+include get_stylesheet_directory() . '/functions_odivino.php';
 get_header(); ?>
 
 
