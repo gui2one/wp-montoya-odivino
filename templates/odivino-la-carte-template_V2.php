@@ -10,68 +10,14 @@ get_header(); ?>
 
 
 <?php
-
-function get_la_carte_category($cat_slug)
-{
-    $posts = get_posts([
-        'post_type'      => 'la_carte',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-            [
-                'taxonomy' => 'la_carte-category',
-                'field'    => 'slug',
-                'terms'    => $cat_slug,
-            ],
-        ],
-    ]);
-
-    return $posts;
-}
+include get_stylesheet_directory() . '../functions_odivino.php';
 
 
-/// OLD FUNCTIONS
-function get_plats_category($cat_slug)
-{
-    $posts = get_posts([
-        'post_type'      => 'plats',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-            [
-                'taxonomy' => 'plats-category',
-                'field'    => 'slug',
-                'terms'    => $cat_slug,
-            ],
-        ],
-    ]);
-
-    return $posts;
-}
-
-function get_pizzas_category($cat_slug)
-{
-    $posts = get_posts([
-        'post_type'      => 'la_carte',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-            [
-                'taxonomy' => 'la_carte-category',
-                'field'    => 'slug',
-                'terms'    => $cat_slug,
-            ],
-        ],
-    ]);
-
-    return $posts;
-}
 function display_items($posts, $title = "title")
 {
-
+    if (count($posts) == 0) {
+        return;
+    }
     echo "<div class=\"odivino-plat-category-container\">";
     echo "<h4 class=\"category-title italian-title \">$title</h4>";
     foreach ($posts as $post) {
@@ -84,9 +30,13 @@ function display_items($posts, $title = "title")
 }
 function display_pizzas($title = "title")
 {
-    $pizzas_mozza     = get_pizzas_category("Base Mozzarella fior di latte");
-    $pizzas_tomate    = get_pizzas_category("Base Tomate");
-    $pizzas_speciales = get_pizzas_category("Speciales");
+    $pizzas_mozza     = get_odivino_category("la_carte", "Base Mozzarella fior di latte");
+    $pizzas_tomate    = get_odivino_category("la_carte", "Base Tomate");
+    $pizzas_speciales = get_odivino_category("la_carte", "Speciales");
+
+    if (count($pizzas_mozza) == 0 && count($pizzas_tomate) == 0 && count($pizzas_speciales) == 0) {
+        return;
+    }
     echo "<div class=\"odivino-plat-category-container\">";
     echo "<h4 class=\"category-title italian-title \">$title</h4>";
     echo "<div class=\"odivino-pizza-category-container\">";
@@ -121,13 +71,14 @@ function display_pizzas($title = "title")
     echo "</div>";
 }
 
-$entrees  = get_la_carte_category("entrees");
-$plats    = get_la_carte_category("plats");
-$desserts = get_la_carte_category("desserts");
+$entrees  = get_odivino_category("la_carte", "entrees");
+$salades  = get_odivino_category("la_carte", "salades");
+$plats    = get_odivino_category("la_carte", "plats");
+$desserts = get_odivino_category("la_carte", "desserts");
 
-$pizzas_mozza     = get_pizzas_category("Base Mozzarella fior di latte");
-$pizzas_tomate    = get_pizzas_category("Base Tomate");
-$pizzas_speciales = get_pizzas_category("Speciales");
+$pizzas_mozza     = get_odivino_category("la_carte", "Base Mozzarella fior di latte");
+$pizzas_tomate    = get_odivino_category("la_carte", "Base Tomate");
+$pizzas_speciales = get_odivino_category("la_carte", "Speciales");
 ?>
 <main class="odivino">
     <div style="height:150px;"></div>
@@ -135,6 +86,7 @@ $pizzas_speciales = get_pizzas_category("Speciales");
     <div class="odivino-separator"></div>
     <?php the_content(); ?>
     <?php display_items($entrees, "Entrées"); ?>
+    <?php display_items($salades, "Salades"); ?>
 
     <?php display_items($plats, "Plats"); ?>
     <?php display_pizzas("Les Pizzas"); ?>

@@ -5,7 +5,7 @@
  * Description: A custom page template for the Odivino page.
  * Author: gui2one
  */
-
+include get_stylesheet_directory() . '../functions_odivino.php';
 get_header(); ?>
 <?php
 
@@ -29,39 +29,23 @@ function get_a_emporter_category($cat_slug)
 }
 
 
-function get_pizzas_category($category_slug)
-{
-    $posts = get_posts([
-        'post_type'      => 'a_emporter',
-        'posts_per_page' => -1,
-        'tax_query'      => [
-            [
-                'taxonomy' => 'a_emporter-category',
-                'field'    => 'slug',
-                'terms'    => $category_slug,
-            ],
-        ],
-    ]);
-
-    return $posts;
-}
 function get_base_tomate()
 {
-    $posts = get_pizzas_category("base-tomate");
+    $posts = get_pizzas_category("a_emporter", "base-tomate");
 
     return $posts;
 }
 
 function get_base_mozzarella()
 {
-    $posts = get_pizzas_category("base-mozzarella-fior-di-latte");
+    $posts = get_pizzas_category("a_emporter", "base-mozzarella-fior-di-latte");
 
     return $posts;
 }
 
 function get_speciales()
 {
-    $posts = get_pizzas_category("speciales");
+    $posts = get_pizzas_category("a_emporter", "speciales");
 
     return $posts;
 }
@@ -94,7 +78,7 @@ function display_items($posts, $title = "title")
     <h3>Gourmandises (6€)</h3>
     <?php
 
-    $plats_emporter = get_a_emporter_category("desserts");
+    $plats_emporter = get_odivino_category("a_emporter", "desserts");
     display_items($plats_emporter, "Desserts");
     ?>
 </main>
