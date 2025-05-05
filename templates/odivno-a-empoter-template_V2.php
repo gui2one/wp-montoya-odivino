@@ -9,43 +9,24 @@ include get_stylesheet_directory() . '../functions_odivino.php';
 get_header(); ?>
 <?php
 
-function get_a_emporter_category($cat_slug)
-{
-    $posts = get_posts([
-        'post_type'      => 'a_emporter',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-            [
-                'taxonomy' => 'a_emporter-category',
-                'field'    => 'slug',
-                'terms'    => $cat_slug,
-            ],
-        ],
-    ]);
-
-    return $posts;
-}
-
 
 function get_base_tomate()
 {
-    $posts = get_pizzas_category("a_emporter", "base-tomate");
+    $posts = get_odivino_category("a_emporter", "base-tomate");
 
     return $posts;
 }
 
 function get_base_mozzarella()
 {
-    $posts = get_pizzas_category("a_emporter", "base-mozzarella-fior-di-latte");
+    $posts = get_odivino_category("a_emporter", "base-mozzarella-fior-di-latte");
 
     return $posts;
 }
 
 function get_speciales()
 {
-    $posts = get_pizzas_category("a_emporter", "speciales");
+    $posts = get_odivino_category("a_emporter", "speciales");
 
     return $posts;
 }
@@ -57,7 +38,7 @@ function display_items($posts, $title = "title")
     echo "<h4 class=\"italian-title\">$title</h4>";
     foreach ($posts as $post) {
         echo "<div class=\"odivino-plat-container\">";
-        echo "<h4>$post->post_title</h4>";
+        echo "<h5>$post->post_title</h5>";
         echo $post->post_content;
         echo "</div>";
     }

@@ -10,39 +10,16 @@ get_header(); ?>
 
 
 <?php
-function get_plats_category($category_slug1, $category_slug2)
-{
-    $posts = get_posts([
-        'post_type'      => 'plats',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-            'relation' => 'AND',
-            [
-                'taxonomy' => 'plats-category',
-                'field'    => 'slug',
-                'terms'    => $category_slug1,
-            ],
-            [
-                'taxonomy' => 'plats-category',
-                'field'    => 'slug',
-                'terms'    => $category_slug2,
-            ],
-        ],
-    ]);
 
-    return $posts;
-}
 
 function display_items($posts, $title = "title")
 {
 
     echo "<div class=\"odivino-plat-category-container\">";
-    echo "<h2 class=\"italian-title\">$title</h2>";
+    echo "<h4 class=\"italian-title\">$title</h4>";
     foreach ($posts as $post) {
         echo "<div class=\"odivino-plat-container\">";
-        echo "<h4>$post->post_title</h4>";
+        echo "<h5>$post->post_title</h5>";
         echo $post->post_content;
         echo "</div>";
     }
