@@ -1,7 +1,5 @@
 <?php
 
-require_once 'inc/plats_post_type.php';
-require_once 'inc/pizzas_post_type.php';
 require_once 'inc/utils.php';
 
 add_theme_support('post-thumbnails');
