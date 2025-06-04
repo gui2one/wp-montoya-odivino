@@ -74,11 +74,12 @@ function display_pizzas($title = "title")
 $entrees  = get_odivino_category("la_carte", "entrees");
 $salades  = get_odivino_category("la_carte", "salades");
 $plats    = get_odivino_category("la_carte", "plats");
+$pizzas    = get_odivino_category("la_carte", "pizzas");
 $desserts = get_odivino_category("la_carte", "desserts");
 
-$pizzas_mozza     = get_odivino_category("la_carte", "Base Mozzarella fior di latte");
-$pizzas_tomate    = get_odivino_category("la_carte", "Base Tomate");
-$pizzas_speciales = get_odivino_category("la_carte", "Speciales");
+// $pizzas_mozza     = get_odivino_category("la_carte", "Base Mozzarella fior di latte");
+// $pizzas_tomate    = get_odivino_category("la_carte", "Base Tomate");
+// $pizzas_speciales = get_odivino_category("la_carte", "Speciales");
 ?>
 <main class="odivino">
     <div style="height:150px;"></div>
@@ -89,7 +90,7 @@ $pizzas_speciales = get_odivino_category("la_carte", "Speciales");
     <?php display_items($salades, "Salades"); ?>
 
     <?php display_items($plats, "Plats"); ?>
-    <?php display_items($plats, "Pizzas"); ?>
+    <?php display_items($pizzas, "Pizzas"); ?>
     <!-- <?php display_pizzas("Les Pizzas"); ?> -->
     <?php display_items($desserts, "Desserts"); ?>
 
