@@ -74,7 +74,7 @@ function display_pizzas($title = "title")
 $entrees  = get_odivino_category("la_carte", "entrees");
 $salades  = get_odivino_category("la_carte", "salades");
 $plats    = get_odivino_category("la_carte", "plats");
-$pizzas    = get_odivino_category("la_carte", "pizzas");
+$pizzas   = get_odivino_category("la_carte", "pizzas");
 $desserts = get_odivino_category("la_carte", "desserts");
 
 // $pizzas_mozza     = get_odivino_category("la_carte", "Base Mozzarella fior di latte");
@@ -91,7 +91,7 @@ $desserts = get_odivino_category("la_carte", "desserts");
 
     <?php display_items($plats, "Plats"); ?>
     <?php display_items($pizzas, "Pizzas"); ?>
-    <!-- <?php display_pizzas("Les Pizzas"); ?> -->
+
     <?php display_items($desserts, "Desserts"); ?>
 
 
