@@ -25,27 +25,59 @@ function __register_custom_post_type_and_taxonomy($args)
             ]
         );
 
-        // Add hardcoded categories
-        $default_terms = ['Entrees', 'Salades', 'Pizzas', 'Plats', 'Desserts'];
+        if (! empty($args['taxonomy']['default_terms'])) {
+            foreach ($args['taxonomy']['default_terms'] as $key => $default_term) {
+                if (gettype($default_term) === 'string') {
+                    // print_r($default_term . '<br>');
+                    if (! term_exists($default_term, $args['taxonomy']['slug'])) {
+                        wp_insert_term($default_term, $args['taxonomy']['slug']);
+                    }
+                } else if (gettype($default_term) === 'array') {
+                    // add the parent term 
 
-        foreach ($default_terms as $term) {
-            if (! term_exists($term, $args['taxonomy']['slug'])) {
-                wp_insert_term($term, $args['taxonomy']['slug']);
+                    if (! term_exists($key, $args['taxonomy']['slug'])) {
+                        wp_insert_term($key, $args['taxonomy']['slug']);
+                    }
+                    // First, make sure "Pizzas" exists and get its term ID
+                    $pizzas_term = get_term_by('name', $key, $args['taxonomy']['slug']);
+
+                    if ($pizzas_term && ! is_wp_error($pizzas_term)) {
+                        foreach ($default_term as $child_term) {
+
+                            // print_r($child_term . '<br> ');
+                            if (! term_exists($child_term, $args['taxonomy']['slug'])) {
+                                wp_insert_term($child_term, $args['taxonomy']['slug'], [
+                                    'parent' => $pizzas_term->term_id,
+                                ]);
+                            }
+                        }
+                        // die();
+                    }
+                }
             }
-        }
+        } else {
 
-        // Add subcategories under "Pizzas"
-        $pizza_children = ['Base Mozzarella fior di latte', 'Base Tomate', 'Speciales'];
+            // Add hardcoded categories
+            $default_terms = ['Entrees', 'Salades', 'Pizzas', 'Plats', 'Desserts'];
 
-        // First, make sure "Pizzas" exists and get its term ID
-        $pizzas_term = get_term_by('name', 'Pizzas', $args['taxonomy']['slug']);
+            foreach ($default_terms as $term) {
+                if (! term_exists($term, $args['taxonomy']['slug'])) {
+                    wp_insert_term($term, $args['taxonomy']['slug']);
+                }
+            }
 
-        if ($pizzas_term && ! is_wp_error($pizzas_term)) {
-            foreach ($pizza_children as $child_term) {
-                if (! term_exists($child_term, $args['taxonomy']['slug'])) {
-                    wp_insert_term($child_term, $args['taxonomy']['slug'], [
-                        'parent' => $pizzas_term->term_id,
-                    ]);
+            // Add subcategories under "Pizzas"
+            $pizza_children = ['Base Mozzarella fior di latte', 'Base Tomate', 'Speciales'];
+            // First, make sure "Pizzas" exists and get its term ID
+            $pizzas_term = get_term_by('name', 'Pizzas', $args['taxonomy']['slug']);
+
+            if ($pizzas_term && ! is_wp_error($pizzas_term)) {
+                foreach ($pizza_children as $child_term) {
+                    if (! term_exists($child_term, $args['taxonomy']['slug'])) {
+                        wp_insert_term($child_term, $args['taxonomy']['slug'], [
+                            'parent' => $pizzas_term->term_id,
+                        ]);
+                    }
                 }
             }
         }

@@ -15,6 +15,7 @@ create_custom_post_type_and_taxonomy([
     'taxonomy'         => [
         'slug'         => 'a_emporter-category',
         'label'        => 'Categories',
+        'default_terms' => ['Entrees', 'Salades', 'Pizzas' => ['Base Mozzarella fior di latte', 'Base Tomate', 'Speciales'], 'Plats', 'Desserts'],
         'hierarchical' => true,
         'show_in_rest' => true,
         'query_var'    => true,
@@ -36,6 +37,7 @@ create_custom_post_type_and_taxonomy([
     'taxonomy'         => [
         'slug'         => 'la_carte-category',
         'label'        => 'Categories',
+        'default_terms' => ['Entrees', 'Salades', 'Pizzas', 'Plats', 'Desserts'],
         'hierarchical' => true,
         'show_in_rest' => true,
         'query_var'    => true,
@@ -57,6 +59,7 @@ create_custom_post_type_and_taxonomy([
     'taxonomy'         => [
         'slug'         => 'menu_semaine-category',
         'label'        => 'Categories',
+        'default_terms' => ['Entrees', 'Salades', 'Pizzas' => ['Base Mozzarella fior di latte', 'Base Tomate', 'Speciales'], 'Plats', 'Desserts'],
         'hierarchical' => true,
         'show_in_rest' => true,
         'query_var'    => true,
