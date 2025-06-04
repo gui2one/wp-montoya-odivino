@@ -89,7 +89,8 @@ $pizzas_speciales = get_odivino_category("la_carte", "Speciales");
     <?php display_items($salades, "Salades"); ?>
 
     <?php display_items($plats, "Plats"); ?>
-    <?php display_pizzas("Les Pizzas"); ?>
+    <?php display_items($plats, "Pizzas"); ?>
+    <!-- <?php display_pizzas("Les Pizzas"); ?> -->
     <?php display_items($desserts, "Desserts"); ?>
 
 
