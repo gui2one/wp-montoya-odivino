@@ -24,5 +24,5 @@
 
 ### La CARTE / A EMPORTER / Menu DE semaine
 
-- meta descrription !!!
+- meta description !!!
 - titre - mot clé secondaire.
