@@ -18,7 +18,7 @@ get_header(); ?>
     ?>
   </div> <!-- END image-container -->
   <div class="content">
-    <h1 class="odivino-animated-title">O'Divino - Restaurant Italien à Melesse</h1>
+    <h1 class="odivino-animated-title">O'Divino</h1>
 
     <span class="odivino-sub-title"><?php echo get_option("blogdescription"); ?></span>
   </div>
